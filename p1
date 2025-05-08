@@ -1,0 +1,24 @@
+P2
+
+print("hi")
+
+FROM openjdk
+WORKDIR /app
+COPY . /app
+RUN javac Add.java
+CMD ["java","Add"]
+
+
+FROM python:3.10-slim
+WORKDIR /app
+COPY 1.py /app/1.py 
+CMD ["python","1.py"]
+
+docker build -t img4 .
+docker run img4
+docker images
+docker tag img:latest username/newimage:h2
+docker images
+docker login
+docker push vikasar/newimage:h2
+docker pull vikasar/newimage:h2
