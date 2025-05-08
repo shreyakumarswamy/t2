@@ -1,0 +1,33 @@
+maven proj -> create folder(JSON) inside that file(stu.json) ->
+{
+	"firstname" : "abc",
+	"lastname" : "def"
+}
+pom.xml file -> go to google -> paste
+src/test/jav -> new class paste the below code
+
+package vvce.demo1;
+import java.io.FileReader;
+import java.io.IOException;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+public class ss {
+
+	public static void main(String[] args) throws IOException, ParseException{
+		// TODO Auto-generated method s JSONParser()tub
+		JSONParser jsonparser = new JSONParser();
+		FileReader reader = new FileReader(".\\JSON\\stu.json");
+		Object obj =jsonparser.parse(reader);
+		JSONObject empjsonobj =(JSONObject)obj;
+		
+		String firstname = (String)empjsonobj.get("firstname");
+		String lastname = (String)empjsonobj.get("lastname");
+		
+		System.out.println("First name:"+firstname);
+		System.out.println("Last name:"+lastname);
+	}
+
+}
